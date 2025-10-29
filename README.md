@@ -45,7 +45,7 @@ This monorepo includes the following:
 
 ### 1. Clone and Initialize
 
-\`\`\`bash
+```bash
 # Clone this repository
 git clone <your-repo-url> my-project
 cd my-project
@@ -56,22 +56,22 @@ node scripts/init.js
 
 # Install dependencies
 pnpm install
-\`\`\`
+```
 
 **Note:** The initialization script validates your project name and automatically replaces all instances of `@repo` with your custom scope throughout the codebase.
 
 ### 2. Set Up Environment Variables
 
-\`\`\`bash
+```bash
 # Copy the example environment file
 cp .env.example .env
 
 # Edit .env with your configuration
-\`\`\`
+```
 
 ### 3. Set Up Database
 
-\`\`\`bash
+```bash
 # Generate Prisma client
 pnpm db:generate
 
@@ -80,20 +80,21 @@ pnpm db:push
 
 # Or run migrations (for production)
 pnpm db:migrate
-\`\`\`
+```
 
 ### 4. Start Development
 
-\`\`\`bash
+```bash
 # Start all apps in development mode
 pnpm dev
 
 # Or start individual apps
 pnpm --filter @repo/web dev
 pnpm --filter @repo/api dev
-\`\`\`
+```
 
 The apps will be available at:
+
 - **Web**: http://localhost:3000
 - **API**: http://localhost:3001
 - **API Docs**: http://localhost:3001/docs
@@ -102,7 +103,7 @@ The apps will be available at:
 
 ### Root Commands
 
-\`\`\`bash
+```bash
 pnpm dev            # Start all apps in development
 pnpm build          # Build all apps and packages
 pnpm start          # Start all apps in production
@@ -116,20 +117,20 @@ pnpm db:generate    # Generate Prisma client
 pnpm db:push        # Push schema to database
 pnpm db:migrate     # Run database migrations
 pnpm db:studio      # Open Prisma Studio
-\`\`\`
+```
 
 ### Workspace-Specific Commands
 
-\`\`\`bash
+```bash
 # Run commands in specific workspaces
 pnpm --filter @repo/web <command>
 pnpm --filter @repo/api <command>
 pnpm --filter @repo/database <command>
-\`\`\`
+```
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 nextjs-turborepo-starter/
 ├── apps/
 │   ├── api/                    # Fastify API application
@@ -157,7 +158,7 @@ nextjs-turborepo-starter/
 ├── pnpm-workspace.yaml         # pnpm workspace config
 ├── turbo.json                  # Turborepo config
 └── tsconfig.json               # Root TypeScript config
-\`\`\`
+```
 
 ## 🔧 Configuration
 
@@ -165,7 +166,7 @@ nextjs-turborepo-starter/
 
 Copy `.env.example` to `.env` and configure:
 
-\`\`\`env
+```env
 # Database
 DATABASE_URL="postgresql://user:password@localhost:5432/myapp"
 
@@ -183,36 +184,37 @@ CORS_ORIGINS="http://localhost:3000,http://localhost:3001"
 
 # Next.js
 NEXT_PUBLIC_API_URL="http://localhost:3001"
-\`\`\`
+```
 
 ### Adding shadcn/ui Components
 
-\`\`\`bash
+```bash
 cd apps/web
 npx shadcn@latest add button
 npx shadcn@latest add card
 # etc...
-\`\`\`
+```
 
 ## 🎨 Customization
 
 ### Rename Packages
 
 Update package names in:
+
 1. Each `package.json` file
 2. Import statements across the codebase
 3. `tsconfig.json` path mappings
 
 ### Add a New Package
 
-\`\`\`bash
+```bash
 mkdir -p packages/my-package/src
 cd packages/my-package
-\`\`\`
+```
 
-Create \`package.json\`:
+Create `package.json`:
 
-\`\`\`json
+```json
 {
   "name": "@repo/my-package",
   "version": "0.0.0",
@@ -231,11 +233,11 @@ Create \`package.json\`:
     "typescript": "5.9.2"
   }
 }
-\`\`\`
+```
 
-Create \`tsconfig.json\`:
+Create `tsconfig.json`:
 
-\`\`\`json
+```json
 {
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
@@ -245,19 +247,19 @@ Create \`tsconfig.json\`:
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
-\`\`\`
+```
 
 ### Add a New App
 
-\`\`\`bash
+```bash
 mkdir -p apps/my-app
 cd apps/my-app
 # Follow similar pattern as existing apps
-\`\`\`
+```
 
 ## 🧪 Testing
 
-\`\`\`bash
+```bash
 # Run all tests
 pnpm test
 
@@ -266,35 +268,35 @@ pnpm test:watch
 
 # Run tests with coverage
 pnpm test:coverage
-\`\`\`
+```
 
 ## 🏗️ Building for Production
 
-\`\`\`bash
+```bash
 # Build all apps
 pnpm build
 
 # Build specific app
 pnpm --filter @repo/web build
 pnpm --filter @repo/api build
-\`\`\`
+```
 
 ## 🚢 Deployment
 
 ### Deploy Web App (Vercel)
 
-\`\`\`bash
+```bash
 # Install Vercel CLI
 pnpm add -g vercel
 
 # Deploy
 cd apps/web
 vercel
-\`\`\`
+```
 
 ### Deploy API (Docker)
 
-\`\`\`dockerfile
+```dockerfile
 # Example Dockerfile for API
 FROM node:18-alpine AS base
 RUN corepack enable
@@ -310,7 +312,7 @@ COPY --from=builder /app/apps/api/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3001
 CMD ["node", "dist/index.js"]
-\`\`\`
+```
 
 ## 🔄 Framework Alternatives
 
@@ -319,8 +321,9 @@ Want to use Express, NestJS, or another framework instead of Fastify?
 Check out our comprehensive guide: **[Framework Alternatives Guide](./docs/FRAMEWORK-ALTERNATIVES.md)**
 
 Includes detailed migration instructions for:
+
 - ✅ Express.js
-- ✅ NestJS  
+- ✅ NestJS
 - ✅ Hono
 - ✅ Koa
 
@@ -344,4 +347,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Built with ❤️ using Next.js, Turborepo, and TypeScript
-

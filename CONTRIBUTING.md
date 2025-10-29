@@ -5,16 +5,18 @@ Thank you for considering contributing to this project!
 ## Development Workflow
 
 1. **Fork and Clone**
-   \`\`\`bash
+
+   ```bash
    git clone <your-fork-url>
    cd nextjs-turborepo-starter
    pnpm install
-   \`\`\`
+   ```
 
 2. **Create a Branch**
-   \`\`\`bash
+
+   ```bash
    git checkout -b feature/my-feature
-   \`\`\`
+   ```
 
 3. **Make Changes**
    - Write code following the existing patterns
@@ -31,9 +33,9 @@ Thank you for considering contributing to this project!
      - `chore: update dependencies`
 
 5. **Push and Create PR**
-   \`\`\`bash
+   ```bash
    git push origin feature/my-feature
-   \`\`\`
+   ```
    Then create a Pull Request on GitHub.
 
 ## Code Style
@@ -52,4 +54,3 @@ Thank you for considering contributing to this project!
 ## Questions?
 
 Feel free to open an issue for any questions or discussions!
-
