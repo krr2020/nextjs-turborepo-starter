@@ -208,9 +208,11 @@ Update package names in:
 \`\`\`bash
 mkdir -p packages/my-package/src
 cd packages/my-package
+\`\`\`
 
-# Create package.json
-cat > package.json << 'EOF'
+Create \`package.json\`:
+
+\`\`\`json
 {
   "name": "@repo/my-package",
   "version": "0.0.0",
@@ -229,10 +231,11 @@ cat > package.json << 'EOF'
     "typescript": "5.9.2"
   }
 }
-EOF
+\`\`\`
 
-# Create tsconfig.json
-cat > tsconfig.json << 'EOF'
+Create \`tsconfig.json\`:
+
+\`\`\`json
 {
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
@@ -242,7 +245,6 @@ cat > tsconfig.json << 'EOF'
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }
-EOF
 \`\`\`
 
 ### Add a New App
