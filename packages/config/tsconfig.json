@@ -1,0 +1,21 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "incremental": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@repo/database": ["../database/src"],
+      "@repo/types": ["../types/src"],
+      "@repo/ui": ["../ui/src"],
+      "@repo/utils": ["../utils/src"],
+      "@repo/validation": ["../validation/src"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
+

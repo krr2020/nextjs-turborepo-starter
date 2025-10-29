@@ -1,0 +1,25 @@
+{
+  "extends": "@repo/typescript-config/node.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": false,
+    "paths": {
+      "@repo/config": ["../../packages/config/dist"],
+      "@repo/config/*": ["../../packages/config/dist/*"],
+      "@repo/database": ["../../packages/database/dist"],
+      "@repo/database/*": ["../../packages/database/dist/*"],
+      "@repo/types": ["../../packages/types/dist"],
+      "@repo/types/*": ["../../packages/types/dist/*"],
+      "@repo/ui": ["../../packages/ui/dist"],
+      "@repo/ui/*": ["../../packages/ui/dist/*"],
+      "@repo/utils": ["../../packages/utils/dist"],
+      "@repo/utils/*": ["../../packages/utils/dist/*"],
+      "@repo/validation": ["../../packages/validation/dist"],
+      "@repo/validation/*": ["../../packages/validation/dist/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}
+

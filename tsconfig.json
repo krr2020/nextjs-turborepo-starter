@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Base options
+    "strict": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+
+    // Strict type checking
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // Module resolution
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+
+    // Build options
+    "incremental": true,
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // Other options
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Path aliases - will be used by all workspace projects
+    "baseUrl": ".",
+    "paths": {
+      "@repo/config": ["./packages/config/src"],
+      "@repo/config/*": ["./packages/config/src/*"],
+      "@repo/database": ["./packages/database/src"],
+      "@repo/database/*": ["./packages/database/src/*"],
+      "@repo/types": ["./packages/types/src"],
+      "@repo/types/*": ["./packages/types/src/*"],
+      "@repo/ui": ["./packages/ui/src"],
+      "@repo/ui/*": ["./packages/ui/src/*"],
+      "@repo/utils": ["./packages/utils/src"],
+      "@repo/utils/*": ["./packages/utils/src/*"],
+      "@repo/validation": ["./packages/validation/src"],
+      "@repo/validation/*": ["./packages/validation/src/*"]
+    }
+  },
+
+  // Files to include/exclude
+  "include": ["apps/**/*", "packages/**/*"],
+  "exclude": ["**/node_modules", "**/dist", "**/.next", "**/build", "**/.turbo", "**/coverage"],
+
+  // Project references for composite builds
+  "references": [{ "path": "./packages/ui" }]
+}
+
